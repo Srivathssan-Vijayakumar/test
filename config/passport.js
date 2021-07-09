@@ -10,10 +10,8 @@ var cookieExtracter = function(req){
     return token;
 };
 const opts={};
-
 opts.jwtFromRequest = cookieExtracter;
-opts.secretOrKey = keys.secretOrKey;
-console.log(opts.secretOrKey);
+opts.secretOrKey = 'jsonsecretkey';
 
 module.exports = (passport) => {
     passport.use(new jwtStrategy(opts,(jwt_payload,done) => {
