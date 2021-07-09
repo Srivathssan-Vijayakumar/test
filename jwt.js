@@ -7,7 +7,7 @@ var validateToken=(req,res,next)=>{
     }
     else{
         try{
-            const validToken = jwt.verify(accessToken,'jsonsecretkey');
+            const validToken = jwt.verify(accessToken,process.env.JSON_SECRET_KEY);
         if(validToken){
             console.log('Authenticated');
             req.authenticated = true;
