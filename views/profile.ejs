@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <%- messages('messages',locals) %>
+        <% if(errors){ %>
+            <% errors.forEach(function(err){ %>
+                <p class="alert alert-danger">
+                    <%= err.msg%>
+                </p>
+            <% }); %>
+        <% } %>
+    </div>
+    <% if(username!= ""){ %>
+    <h1>Welcome <%= username%></h1><br><br>
+    <a href ="/logout" class="btn btn-primary">Logout</a>
+    <% } else { %>
+    <h1>Welcome </h1><br><br>
+    <a href="/profile" class="btn btn-primary">Go to Profile </a>
+    <% } %>
+</body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>
