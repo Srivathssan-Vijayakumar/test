@@ -7,6 +7,7 @@ const validateToken = require('../jwt')
 const {body,validationResult} = require('express-validator');
 const passport = require('passport')
 const isUser = require('../config/auth')
+const secretkey = process.env.JSON_SECRET_KEY;
 
 router.get('/',(req,res)=>{
     var errors = "";
@@ -93,7 +94,7 @@ router.post('/login',body('username').notEmpty().withMessage('No Username Entere
                         res.redirect('/login');
                     }
                     else{
-                        const token = jwt.sign({username},process.env.JSON_SECRET_KEY);
+                        const token = jwt.sign({username},secretkey);
                         res.cookie('access-token',token,{
                             maxAge:60*60*24*5*1000,
                             httpOnly:true,
