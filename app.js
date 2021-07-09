@@ -22,6 +22,7 @@ db.once('open',()=>{
     console.log('Connected to DB');
 });
 require('dotenv').config();
+console.log('commit to  dev');
 app.set('views',path.join(__dirname,'views'));
 app.set('view engine','ejs');
 
